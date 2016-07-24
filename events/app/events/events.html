@@ -1,23 +1,22 @@
 <div>
     <table class="table table-striped">
-        <tr>
-            <td>ID#</td>
-            <td>Type</td>
-            <td>Event</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>RSVP'd</td>
-        </tr>
-        <tr ng-repeat="event in events">
-            <td>{{ event.id }}</td>
-            <td>{{ event.type }}</td>
-            <td>{{ event.name }}</td>
-            <td><a ui-sref="detail({id: event.id})">Details</a></td>
-            <td><button type="button" class="btn btn-primary" ng-click="rsvp(event.id, 'Yes')">Yes</button></td>
-            <td><button type="button" class="btn btn-danger" ng-click="rsvp(event.id, 'No')">No</button></td>
-            <td ng-model='response'>{{ event.response }}</td>
-        </tr>
-
+            <tr>
+                <td class="col-sm-1 col-xs-2">ID#</td>
+                <td class="col-sm-2 col-xs-3">Type</td>
+                <td class="col-sm-3 col-xs-5">Event</td>
+                <td class="col-sm-2 col-xs-2"></td>
+                <td class="col-sm-1 hidden-xs"></td>
+                <td class="col-sm-2 hidden-xs"></td>
+                <td class="col-sm-1 hidden-xs">RSVP'd</td>
+            </tr>
+            <tr ng-repeat="event in events">
+                <td>{{ event.id }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.name }}</td>
+                <td><a ui-sref="detail({id: event.id})">Details</a></td>
+                <td class="hidden-xs"><button type="button" class="btn btn-primary" ng-click="rsvp(event.id, 'Yes')">Yes</button></td>
+                <td class="hidden-xs"><button type="button" class="btn btn-danger" ng-click="rsvp(event.id, 'No')">No</button></td>
+                <td class="hidden-xs" ng-model='response'>{{ event.response }}</td>
+            </tr>
     </table>
 </div>
