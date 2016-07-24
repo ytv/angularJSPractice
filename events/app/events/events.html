@@ -1,19 +1,21 @@
-<div ng-controller="eventsCtrl">
+<div>
     <table class="table table-striped">
         <tr>
             <td>ID#</td>
             <td>Type</td>
             <td>Event</td>
-            <td>Description</td>
             <td></td>
-            <td>RSVP</td>
+            <td></td>
+            <td></td>
+            <td>RSVP'd</td>
         </tr>
         <tr ng-repeat="event in events">
             <td>{{ event.id }}</td>
             <td>{{ event.type }}</td>
             <td>{{ event.name }}</td>
-            <td>{{ event.description }}</td>
             <td><a ui-sref="detail({id: event.id})">Details</a></td>
+            <td><button type="button" class="btn btn-primary" ng-click="rsvp(event.id, 'Yes')">Yes</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="rsvp(event.id, 'No')">No</button></td>
             <td ng-model='response'>{{ event.response }}</td>
         </tr>
 
