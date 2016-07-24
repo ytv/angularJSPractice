@@ -3,11 +3,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('events', {
             url: '/events',
-            templateUrl: '/app/events/events.html'
+            templateUrl: '/app/events/events.html',
+            controller: 'eventsCtrl'
         })
         .state('detail', {
             url: '/:id',
             templateUrl: '/app/details/details.html',
-            controller: 'eventCtrl'
+            controller: 'detailsCtrl'
         });
 });
