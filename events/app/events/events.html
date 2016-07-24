@@ -1,0 +1,21 @@
+<div ng-controller="eventsCtrl">
+    <table class="table table-striped">
+        <tr>
+            <td>ID#</td>
+            <td>Type</td>
+            <td>Event</td>
+            <td>Description</td>
+            <td></td>
+            <td>RSVP</td>
+        </tr>
+        <tr ng-repeat="event in events">
+            <td>{{ event.id }}</td>
+            <td>{{ event.type }}</td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.description }}</td>
+            <td><a ui-sref="detail({id: event.id})">Details</a></td>
+            <td ng-model='response'>{{ event.response }}</td>
+        </tr>
+
+    </table>
+</div>
