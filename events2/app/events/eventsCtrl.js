@@ -14,7 +14,4 @@ function($scope, eventsService) {
         $scope.error = error;
     });
 
-
-
-
 }]);

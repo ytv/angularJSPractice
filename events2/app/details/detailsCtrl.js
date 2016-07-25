@@ -1,7 +1,8 @@
-detailsModule.controller('detailsCtrl', ['$scope', '$stateParams', 'eventsService',
-function($scope, $stateParams, eventsService) {
+detailsModule.controller('detailsCtrl', ['$scope', '$routeParams', 'eventsService',
+function($scope, $routeParams, eventsService) {
 
-    $scope.id = $stateParams.id;
+    $scope.id = $routeParams.id;
+
     eventsService.getEvent($scope.id).then(function(data) {
         console.log('Event ' + $scope.id + ' data successfully retrieved');
         $scope.eventDetails = data;

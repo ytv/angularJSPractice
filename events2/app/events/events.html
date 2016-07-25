@@ -1,4 +1,4 @@
-<div ng-app="eventsModule">
+<div>
     <table class="table" ng-controller="eventsCtrl">
             <tr>
                 <td class="col-sm-1 col-xs-2">ID#</td>
@@ -8,17 +8,17 @@
                 <td class="col-sm-3 hidden-xs"></td>
                 <td class="col-sm-1 hidden-xs">RSVP'd</td>
             </tr>
-            <tr ng-repeat="event in events" ng-controller="eventCtrl" ng-class="bgColor()">
+            <tr ng-repeat="event in events" ng-controller="eventCtrl">
                 <td>{{ event.id }}</td>
                 <td>{{ event.type }}</td>
                 <td>{{ event.name }}</td>
-                <td><a ui-sref="detail({id: event.id})">Details</a></td>
+                <td><a ng-href="#/events/{{ event.id }}">Details</a></td>
                 <td class="hidden-xs" ng-show="event.response === ''">
                     <button type="button" class="btn btn-primary" ng-click="rsvp(event.id, 'Yes')">Yes</button>
                     <button type="button" class="btn btn-danger" ng-click="rsvp(event.id, 'No')">No</button>
                 </td>
                 <td class="hidden-xs" ng-show="event.response !== ''">
-                    <a class="btn btn-success" ui-sref="detail({id: event.id})">Edit RSVP</a>
+                    <a class="btn btn-success" ng-href="#/events/{{ event.id }}">Edit RSVP</a>
                 </td>
                 <td class="hidden-xs" ng-model='response'>{{ event.response }}</td>
             </tr>

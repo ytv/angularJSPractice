@@ -1,6 +1,15 @@
 app.config(['$routeProvider',
 function($routeProvider) {
-    $routeProvider.when('/events', { templateUrl: 'index.html' });
-    $routeProvider.when('/events/1', { templateUrl: 'index.html' });
     // $urlRouterProvider.otherwise('/events');
+    $routeProvider
+        .when('/events', {
+            templateUrl: 'app/events/events.html'
+        })
+        .when('/events/:id', {
+            templateUrl: 'app/details/details.html'
+        })
+        .otherwise({
+            redirectTo: '/events'
+        })
+
 }]);
