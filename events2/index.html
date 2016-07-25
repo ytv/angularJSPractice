@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="http://code.angularjs.org/1.5.8/angular.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="app/appModule.js"></script>
+    <script src="app/appRouter.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/shared/eventsService.js"></script>
+    <script src="app/shared/mockServerService.js"></script>
+    <script src="app/events/eventsModule.js"></script>
+    <script src="app/events/eventsCtrl.js"></script>
+    <script src="app/events/eventsTypeCtrl.js"></script>
+    <script src="app/details/detailsModule.js"></script>
+    <script src="app/details/detailsCtrl.js"></script>
+
+</head>
+<body>
+    <h1>Event Manager</h1>
+
+    <div ng-app="eventsModule">
+        <table class="table" ng-controller="eventsCtrl">
+                <tr>
+                    <td class="col-sm-1 col-xs-2">ID#</td>
+                    <td class="col-sm-2 col-xs-3">Type</td>
+                    <td class="col-sm-3 col-xs-5">Event</td>
+                    <td class="col-sm-2 col-xs-2"></td>
+                    <td class="col-sm-3 hidden-xs"></td>
+                    <td class="col-sm-1 hidden-xs">RSVP'd</td>
+                </tr>
+                <tr ng-repeat="event in events" ng-controller="eventCtrl" ng-class="bgColor()">
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.type }}</td>
+                    <td>{{ event.name }}</td>
+                    <td><a ui-sref="detail({id: event.id})">Details</a></td>
+                    <td class="hidden-xs" ng-show="event.response === ''">
+                        <button type="button" class="btn btn-primary" ng-click="rsvp(event.id, 'Yes')">Yes</button>
+                        <button type="button" class="btn btn-danger" ng-click="rsvp(event.id, 'No')">No</button>
+                    </td>
+                    <td class="hidden-xs" ng-show="event.response !== ''">
+                        <a class="btn btn-success" ng-href="events/1">Edit RSVP</a>
+                    </td>
+                    <td class="hidden-xs" ng-model='response'>{{ event.response }}</td>
+                </tr>
+        </table>
+    </div>
+
+</body>
+</html>
